@@ -50,6 +50,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
+        $blog->loadCount('comments');
+        // $commentCount = $blog->comments ? $blog->comments->count() : 0;
         return view('theme.singleBlog', compact('blog'));
     }
 
@@ -102,7 +104,7 @@ class BlogController extends Controller
     public function myBlogs()
     {
         if (Auth::check()) {
-            $blogs = Blog::where('user_id', Auth::user()->id)->paginate(10);
+            $blogs = Blog::where('user_id', Auth::user()->id)->withCount('comments')->paginate(10);
             return view('theme.blogs.myBlogs', compact('blogs'));
         }
         abort(403);

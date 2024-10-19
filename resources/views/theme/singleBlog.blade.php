@@ -29,10 +29,10 @@
                         <p>{{ $blog->description }}</p>
 
                     </div>
-                    @if (count($blog->comment) > 0)
+                    @if ($blog->comments()->count() > 0)
                         <div class="comments-area">
-                            <h4>{{ count($blog->comment) }} Comments</h4>
-                            @foreach ($blog->comment as $comments)
+                            <h4>{{ $blog->comments()->count() }} Comments</h4>
+                            @foreach ($blog->comments as $comment)
                                 <div class="comment-list">
                                     <div class="single-comment justify-content-between d-flex">
                                         <div class="user justify-content-between d-flex">
@@ -40,10 +40,10 @@
                                                 <img src="{{ asset('assets') }}/img/avatar.png" width="50px">
                                             </div>
                                             <div class="desc">
-                                                <h5><a href="#">{{ $comments->name }}</a></h5>
-                                                <p class="date">{{ $comments->created_at->format('d M Y') }}</p>
+                                                <h5><a href="#">{{ $comment->name }}</a></h5>
+                                                <p class="date">{{ $comment->created_at->format('d M Y') }}</p>
                                                 <p class="comment">
-                                                    {{ $comments->message }}
+                                                    {{ $comment->message }}
                                                 </p>
                                             </div>
                                         </div>
