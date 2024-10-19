@@ -43,4 +43,10 @@ Route::name('socialite.')->controller(SocialiteController::class)->group(functio
     Route::get('{provider}/redirect', 'redirect')->name('redirect');
 });
 
+//google socilite
+Route::name('socialite.')->controller(SocialiteController::class)->group(function () {
+    Route::get('{provider}/login', 'login')->name('login');
+    Route::get('{provider}/redirect', 'redirect')->name('redirect');
+});
+
 require __DIR__ . '/auth.php';
