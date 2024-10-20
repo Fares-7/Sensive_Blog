@@ -20,14 +20,14 @@
 
         <!--================ Blog slider start =================-->
         @if (count($sliderBlogs) > 0)
-            <section>
-                <div class="container">
+            <section class="blog-slider-section">
+                <div class="container position-relative">
                     <div class="owl-carousel owl-theme blog-slider">
                         @foreach ($sliderBlogs as $blog)
                             <div class="card blog__slide text-center">
                                 <div class="blog__slide__img">
                                     <img class="card-img rounded-0" src="{{ asset("storage/blogs/$blog->image") }}"
-                                        alt="" height="100pxh">
+                                        alt="{{ $blog->name }}" height="200px">
                                 </div>
                                 <div class="blog__slide__content">
                                     <a class="blog__slide__label"
@@ -37,13 +37,14 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
+                    <div class="slider-arrow slider-arrow-left"><i class="fa fa-chevron-left"></i></div>
+                    <div class="slider-arrow slider-arrow-right"><i class="fa fa-chevron-right"></i></div>
                 </div>
             </section>
         @endif
-
         <!--================ Blog slider end =================-->
+
 
         <!--================ Start Blog Post Area =================-->
         <section class="blog-post-area section-margin mt-4">

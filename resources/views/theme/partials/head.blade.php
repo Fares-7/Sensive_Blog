@@ -12,4 +12,28 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/vendors/owl-carousel/owl.carousel.min.css">
 
     <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
+    <style>
+        .blog-slider-section {
+            padding: 40px 0;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 25%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .slider-arrow-left {
+            left: -35px;
+        }
+
+        .slider-arrow-right {
+            right: -35px;
+        }
+    </style>
 </head>

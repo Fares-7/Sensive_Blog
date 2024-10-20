@@ -1,13 +1,14 @@
 @php
     $headerCategories = App\Models\Category::get();
+    $subscriberCount = App\Models\Subscriber::count();
 @endphp
 <header class="header_area">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container box_1620">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html"><img src="{{ asset('assets') }}/img/logo.png"
-                        alt=""></a>
+                <a class="navbar-brand logo_h" href="{{ route('theme.index') }}"><img
+                        src="{{ asset('assets') }}/img/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -39,9 +40,10 @@
 
                     <!-- Add new blog -->
                     @if (Auth::check())
-                       <div style="padding: 10px"> <a href="{{ route('blogs.create') }}" class="btn btn-warning">Add New</a></div>
+                        <div style="padding: 10px"> <a href="{{ route('blogs.create') }}" class="btn btn-warning">Add
+                                New</a></div>
                     @endif
-                    
+
                     <!-- End - Add new blog -->
                     <ul class="nav navbar-nav navbar-right navbar-social">
                         @if (!Auth::check())
@@ -69,6 +71,15 @@
                             </li>
                         @endif
 
+                    </ul>
+                </div>
+
+                <div style="padding-left:30px ">
+                    <ul class="nav navbar-nav navbar-right navbar-social">
+                        <li class="nav-item">
+                            <span class="nav-link">Subscribers: {{ $subscriberCount }}</span>
+                        </li>
+                        <!-- Rest of your existing code -->
                     </ul>
                 </div>
             </div>
